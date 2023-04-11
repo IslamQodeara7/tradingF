@@ -1,0 +1,94 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid px-5">
+        <a style="font-size: 40px;" class="fw-bold navbar-brand"><span>Daily</span>Forex</a>
+        <div class="tradingButton1  mx-auto text-center">
+            <a [href]="navbarButton?.link"  class="btn text-light">
+                
+                {{navbarButton?.name}}</a>
+        </div>       
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+            <ul class="navbar-nav laptopList ms-auto mb-2 mb-lg-0">
+
+                <li *ngFor="let main of navbarList" class="nav-item dropdown">
+                    <a class="nav-link text-light">
+                        {{main.name}}
+                    </a>
+                    <div *ngFor="let sub of main.sub_pages" class=" dropdown-menu">
+                      <div class="subPages w-25 p-3">
+                        <div class="my-3">
+                            <img [src]="sub.icon" class="mx-2" style="width: 50px;" alt="">
+                            {{sub.name}}
+                        </div>
+                        <div *ngFor="let subsub of sub.sub_pages" class="my-3 subSubPages">
+                            
+                            <a [href]="subsub.link">{{subsub.name}}</a>
+                        </div>
+
+                      </div>
+                    </div>
+                </li>
+
+
+            </ul>
+
+            <div class="tradingButton2 mx-auto text-center">
+                <a [href]="navbarButton?.link"  class="text-light btn">
+                    
+                    {{navbarButton?.name}}</a>
+            </div> 
+            <ul class="navbar-nav w-100 mobileList ms-auto mb-2 mb-lg-0 p-0">
+                <li *ngFor="let main of navbarList; let ind1=index;" class="w-100 nav-item">
+                    <div>
+                       <div class="mainBorders">
+                        <a (click)="trueOrFalseList1[ind1]?
+                        trueOrFalseList1[ind1]=false:trueOrFalseList1[ind1]=true" data-bs-toggle="collapse" [href]='"#collapseExample"+ind1' aria-expanded="false"
+                        aria-controls="collapseExample" class="text-decoration-none">
+                        <i [ngClass]="trueOrFalseList1[ind1]==true?'fa-minus':'fa-plus'" class="fa-solid"></i>
+                         {{main.name}} 
+                    </a>
+                       </div>
+
+                        <div class="collapse" [id]="'collapseExample'+ind1">
+                            <div class="m-3">
+                               <div class="subBorders" *ngFor="let sub of main.sub_pages; let ind2=index">
+                                <a (click)="trueOrFalseList2[ind1][ind2]?
+                                trueOrFalseList2[ind1][ind2]=false:trueOrFalseList2[ind1][ind2]=true"
+                                  data-bs-toggle="collapse" [href]='"#collapseExample"+ind1+ind2' aria-expanded="true"
+                                aria-controls="collapseExample" class="d-flex justify-content-between 
+                                align-items-center text-decoration-none">
+                                <span>
+                                    <img [src]="sub.icon" class="mx-2" style="width: 50px;" alt="">
+                                    {{sub.name}}
+                                </span>
+                                <i [ngClass]="trueOrFalseList2[ind1][ind2]?'fa-chevron-up':'fa-chevron-down'" class="fa-solid"></i>
+                            </a>
+                            <div class="collapse" [id]="'collapseExample'+ind1+ind2">
+                                <div class="subsubBorders" *ngFor="let subsub of sub.sub_pages"  class="w-100">
+                                    <a [href]="subsub.link">{{subsub.name}}</a>
+                                </div>
+                            </div>
+                               </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </li>
+           
+
+                <div class="my-3 tradingButton1 w-100 text-center">
+                    <a [href]="navbarButton?.link"  class="w-100 text-light btn">
+                        {{navbarButton?.name}}</a>
+                </div>    
+            </ul>
+            
+
+        </div>
+        
+    </div>
+</nav>

@@ -1,0 +1,114 @@
+@import '../../styles.scss';
+
+nav{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999999;
+    background-color: rgba($color: $mainColor3, $alpha: .3);
+}
+
+.cardItem{
+    border-bottom:2px solid $mainColor2;
+}
+
+.nav-link{
+    cursor: pointer;
+}
+
+.navbar-brand span{
+    color: $mainColor1;
+}
+.dropdown-menu{
+    width: 700px !important;
+    text-align: right !important;
+}
+.dropdown:hover{
+.dropdown-menu{
+    opacity: 1 !important;
+    display: block;
+    margin: auto;
+    width: 700px !important;
+}
+.dropdown-menu:hover{
+    opacity: 1 !important;
+    display: block;
+    margin: auto;
+    width: 700px !important;
+    
+}
+}
+
+.mobileList {
+    display: none;
+    a{
+
+        color: $mainColor1;
+    }
+    
+    .mainBorders{
+        border-bottom: 5px solid $mainColor2;
+        i{
+            background-color: $mainColor1;
+            border-radius: 50%;
+            color: $mainColor5;
+            padding: 5px;
+            margin: 0px 5px;
+        }
+        
+    }
+    .subBorders{
+        border-bottom: 2px solid $mainColor2;
+
+    }
+    
+}
+
+.tradingButton1{
+    display: none;
+}
+.tradingButton1,.tradingButton2{
+    border-radius: 50px;
+    background-color: $mainColor1;
+    color: $mainColor5;
+    box-shadow: 0px 5px 10px $mainColor3;
+}
+
+@media screen and (max-width:1024px) {
+    .mobileList{
+        display: flex;
+    }
+    .tradingButton1{
+        display: block;
+    }
+    .tradingButton2{
+        display: none;
+    }
+    .laptopList{
+        display: none;
+    }
+}
+
+.subSubPages{
+    a{
+        color: $mainColor1;
+        text-decoration: none;
+        transition: all .5s;
+    }
+    a:hover{
+        text-decoration: underline;
+    }
+    
+}
+.subPages{
+    border-left:2px solid $mainColor1;
+}
+.laptopList {
+    .nav-item{
+
+        padding: 10px 20px;
+        border-radius: 30px;
+        background-color: $mainColor1;
+    }
+}
